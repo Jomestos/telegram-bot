@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 from telebot import types
 
-load_dotenv("token.env")
+load_dotenv()
 
 bot = telebot.TeleBot(os.getenv("TOKEN"))
 removeMarkup = types.ReplyKeyboardRemove()
