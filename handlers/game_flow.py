@@ -95,13 +95,13 @@ def _handlePlayersAction(message, player: Player, gameTable: GameTable):
             makeActionForPlayer(message, gameTable, gameTable.getSbPlayer())
             return
         case "End the game":
-            from handlers.table_creation import startChatting
+            from main import startChatting
             bot.send_message(message.chat.id, "Game was ended!\nThanks for playing😊")
             startChatting(message)
             return
         case _:
             if not isOperationExist:
-                bot.send_message(message.chat.id, f"Unknown operation, or invalid number 😢\nTry one more time.")
+                bot.send_message(message.chat.id, "Unknown operation, or invalid number 😢\nTry one more time.")
                 bot.register_next_step_handler(message, lambda msg: _handlePlayersAction(msg, player, gameTable))
                 return
     
@@ -162,7 +162,7 @@ def _editBalanceInGame(message, player: Player, gameTable: GameTable):
     elif message.text == "No":
         makeActionForPlayer(message, gameTable, player)
     else: 
-        bot.send_message(message.chat.id, f"Unknown operation 😢\nTry one more time.")
+        bot.send_message(message.chat.id, "Unknown operation 😢\nTry one more time.")
         bot.register_next_step_handler(message, lambda msg: _handlePlayersAction(msg, player, gameTable))
 
 def _resetBets(gameTable: GameTable):

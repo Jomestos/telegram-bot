@@ -1,6 +1,9 @@
 from config import bot
-from handlers.table_creation import register_handlers
+from handlers import table_creation
+
+@bot.message_handler(commands=['create_table'])
+def startChatting(message):
+    table_creation.getBlinds(message)
 
 if __name__ == "__main__":
-    register_handlers()
     bot.infinity_polling()

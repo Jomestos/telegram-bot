@@ -3,10 +3,8 @@ from telebot import types
 from entities.game_table import GameTable
 from utils import _changeTableSettingsOrInputPlayers
 
-def register_handlers():
-    @bot.message_handler(commands=['create_table'])
-    def startChatting(message):
-        getBlinds(message)
+
+
 
 def getBlinds(message):
     _askForSmallBlind(message)
