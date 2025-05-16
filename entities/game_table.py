@@ -21,7 +21,7 @@ class GameTable:
 
         result = ""
         for player in self.players:
-            result += str(player) + f"\n\n"
+            result += str(player) + "\n\n"
         return result
             
     def removePlayer(self, nickname) -> None:
@@ -95,7 +95,7 @@ class GameTable:
     
     def makePass(self, player: Player):
         if len(self.playersInGame) == 1:
-            bot.send_message(self.chatId, f"Choose the winner, only one player stayed", parse_mode='html')
+            bot.send_message(self.chatId, "Choose the winner, only one player stayed", parse_mode='html')
             return 
         self.removePlayerFromLap(player)
         bot.send_message(self.chatId, f"Player {player.nickname} decided to make pass and lost <b>{player.totalLapBet}</b>💰", parse_mode='html')
